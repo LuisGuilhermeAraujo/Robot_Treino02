@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    Treinamento02
 Library          SeleniumLibrary
+Library    XML
 
 
 *** Variables ***
@@ -27,3 +28,4 @@ Logando Site
     Input Text        ${InputEmail}       luis.compras123@hotmail.com
     Input Password    ${InputPassword}    password
     Click Button      ${ClickLogin}
+    Clear Element      
