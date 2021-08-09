@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation    Treinamento02
 Library          SeleniumLibrary
-Library          DebugLibrary         
+Library          DebugLibrary
+Library          RPA.     
 
 
 *** Variables ***
