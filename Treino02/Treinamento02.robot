@@ -7,54 +7,53 @@ Library          DebugLibrary
 *** Variables ***
 ${NAVEGADOR}               Chrome
 ${LINK}                    https://developer.clashroyale.com/#
-${InputEmail}              id=email
-${InputPassword}           id=password
-${ClickLogin}              xpath=//*[@id="content"]/div/div[2]/div/div/div/div/div/div/form/div[4]/button
-#${ClickSubMenu}           css=button[class*="dropdown-toggle"]
-#${ClickItemMenu}          xpath=//a[contains(text(),"My Account")]
-#${ClickNewKey}            xpath=//*[@id="content"]/div/div[2]/div/div/section[2]/div/div/div[2]/p/a/span[2]/font/font
-${InputNameAPI}            id=name
-${InputDescriptionAPI}     id=description
-${InputIPAddresses1}       id=range-0
-${InputIPAddresses2}       id=range-1
-${ClickNewIP}              css=button[class*="btn btn-secondary"]
-${ClickCreateKey}          css=button[class*="ladda-button btn btn-primary btn-lg btn-block"]
-${ClickAcessKey}           css=h4[class="api-key__name"]                    
-${GetTextToken}            css=button[class*="form-control input-lg"]
+${INPUTEMAIL}              id=email
+${INPUTPASSWORD}           id=password
+${GMAIL_USER}              developerluisaraujo@gmail.com
+${GMAIL_PASSWORD}          @123456789@
+${CLICKLOGIN}              xpath=//*[@id="content"]/div/div[2]/div/div/div/div/div/div/form/div[4]/button
+${INPUTNAMEAPI}            id=name
+${INPUTDESCRIOTIONAPI}     id=description
+${INPUTIPADDRESSES1}       id=range-0
+${INPUTIPADDRESSES2}       id=range-1
+${CLICKNEWIP}              css=button[class*="btn btn-secondary"]
+${CLICKCREATEKEY}          css=button[class*="ladda-button btn btn-primary btn-lg btn-block"]
+${CLICKACESSKEY}           css=h4[class="api-key__name"]
+${GETTEXTTOKEN}            css=button[class*="form-control input-lg"]
 
 
 *** Tasks ***
 Tarefa 1:
     [Documentation]    Sequencia das tarefas
-    Conectar ao site
-    Logando Site
-    Acessando Perfil
-    Criando New Key
-    Acessed Key Create
+    CONECTAR AO SITE
+    LOGANDO SITE
+    ACESSANDO PERFIL
+    CRIANDO NEW KEY
+    ACESSED KEY CREATED
 
 
 *** Keywords ***
-Conectar ao site
-    Close All Browsers
+CONECTAR AO SITE
+    [Documentation]    Sequencia das tarefas
     Open Browser       ${Link}/login    ${Navegador}
     Maximize Browser Window
     Sleep    1s
 
-Logando Site
-    Input Text        ${InputEmail}       luis.compras123@hotmail.com
-    Input Password    ${InputPassword}    password
-    Click Button      ${ClickLogin}
+LOGANDO SITE
+    [Documentation]    Sequencia das tarefas
+    Input Text        ${INPUTEMAIL}    ${GMAIL_USER}
+    Input Password    ${INPUTPASSWORD}    ${GMAIL_PASSWORD}
+    Click Button      ${CLICKLOGIN}
     Sleep    1s
 
-Acessando Perfil
+ACESSANDO PERFIL
+    [Documentation]    Sequencia das tarefas
     Go To    ${Link}/account
     Sleep    1s
-    #Click Element     ${ClickSubMenu}
-    #Clear Element     ${ClickItemMenu}
-    #Click Button       ${ClickNewKey}
     Go To    ${Link}/new-key
 
-Criando New Key
+CRIANDO NEW KEY
+    [Documentation]    Sequencia das tarefas
     Input Text    ${InputNameAPI}    LuisAPI
     Input Text    ${InputDescriptionAPI}    API para adicionar novas informações ao campo
     Input Text    ${InputIPAddresses1}    189.54.220.236
@@ -63,9 +62,8 @@ Criando New Key
     Click Button  ${ClickCreateKey}
     Sleep    1s
 
-Acessed Key Create
+ACESSED KEY CREATED
+    [Documentation]    Sequencia das tarefas
     Sleep    1s
-    #Debug
     Click Element   ${ClickAcessKey}
     Sleep    1s
-    
