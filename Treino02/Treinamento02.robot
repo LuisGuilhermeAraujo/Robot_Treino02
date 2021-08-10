@@ -2,12 +2,11 @@
 Documentation    Treinamento02
 Library          SeleniumLibrary
 Library          DebugLibrary
-Library          RPA.     
 
 
 *** Variables ***
-${Navegador}               Chrome
-${Link}                    https://developer.clashroyale.com/#
+${NAVEGADOR}               Chrome
+${LINK}                    https://developer.clashroyale.com/#
 ${InputEmail}              id=email
 ${InputPassword}           id=password
 ${ClickLogin}              xpath=//*[@id="content"]/div/div[2]/div/div/div/div/div/div/form/div[4]/button
@@ -35,7 +34,6 @@ Tarefa 1:
 
 
 *** Keywords ***
-
 Conectar ao site
     Close All Browsers
     Open Browser       ${Link}/login    ${Navegador}
