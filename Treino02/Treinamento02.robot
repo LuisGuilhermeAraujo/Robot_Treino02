@@ -24,7 +24,7 @@ ${GETTEXTTOKEN}            css=button[class*="form-control input-lg"]
 
 *** Tasks ***
 Tarefa 1:
-    [Documentation]    Sequencia das tarefas
+    [Documentation]    Sequencia das tarefas para entrar no site
     CONECTAR AO SITE
     LOGANDO SITE
     ACESSANDO PERFIL
@@ -34,26 +34,26 @@ Tarefa 1:
 
 *** Keywords ***
 CONECTAR AO SITE
-    [Documentation]    Sequencia das tarefas
+    [Documentation]    Sequencia das tarefas para abrir o site
     Open Browser       ${LINK}/login    ${NAVEGADOR}
     Maximize Browser Window
     Sleep    1s
 
 LOGANDO SITE
-    [Documentation]    Sequencia das tarefas
+    [Documentation]    Sequencia das tarefas logar no site
     Input Text        ${INPUTEMAIL}    ${GMAIL_USER}
     Input Password    ${INPUTPASSWORD}    ${GMAIL_PASSWORD}
     Click Button      ${CLICKLOGIN}
     Sleep    1s
 
 ACESSANDO PERFIL
-    [Documentation]    Sequencia das tarefas
+    [Documentation]    Sequencia das tarefas para abrir o perfil
     Go To    ${LINK}/account
     Sleep    1s
     Go To    ${LINK}/new-key
 
 CRIANDO NEW KEY
-    [Documentation]    Sequencia das tarefas
+    [Documentation]    Sequencia das tarefas para criar new key
     Input Text    ${INPUTNAMEAPI}    LuisAPI
     Input Text    ${INPUTDDESCRIPTIONAPI}    API para adicionar novas informações ao campo
     Input Text    ${INPUTIPADDRESSES1}    189.54.220.236
@@ -63,7 +63,7 @@ CRIANDO NEW KEY
     Sleep    1s
 
 ACESSED KEY CREATED
-    [Documentation]    Sequencia das tarefas
+    [Documentation]    Sequencia das tarefas para acessar o created key
     Sleep    1s
-    Click Element   ${ClickAcessKey}
+    Click Element   ${CLICKACESSKEY}
     Sleep    1s
