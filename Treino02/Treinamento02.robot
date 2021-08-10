@@ -35,7 +35,7 @@ Tarefa 1:
 *** Keywords ***
 CONECTAR AO SITE
     [Documentation]    Sequencia das tarefas
-    Open Browser       ${Link}/login    ${Navegador}
+    Open Browser       ${LINK}/login    ${NAVEGADOR}
     Maximize Browser Window
     Sleep    1s
 
@@ -48,18 +48,18 @@ LOGANDO SITE
 
 ACESSANDO PERFIL
     [Documentation]    Sequencia das tarefas
-    Go To    ${Link}/account
+    Go To    ${LINK}/account
     Sleep    1s
-    Go To    ${Link}/new-key
+    Go To    ${LINK}/new-key
 
 CRIANDO NEW KEY
     [Documentation]    Sequencia das tarefas
-    Input Text    ${InputNameAPI}    LuisAPI
-    Input Text    ${InputDescriptionAPI}    API para adicionar novas informações ao campo
-    Input Text    ${InputIPAddresses1}    189.54.220.236
-    Click Button  ${ClickNewIP}
-    Input Text    ${InputIPAddresses2}    189.54.220.236
-    Click Button  ${ClickCreateKey}
+    Input Text    ${INPUTNAMEAPI}    LuisAPI
+    Input Text    ${INPUTDDESCRIPTIONAPI}    API para adicionar novas informações ao campo
+    Input Text    ${INPUTIPADDRESSES1}    189.54.220.236
+    Click Button  ${CLICKNEWIP}
+    Input Text    ${INPUTIPADDRESSES2}    189.54.220.236
+    Click Button  ${CLICKCREATEKEY}
     Sleep    1s
 
 ACESSED KEY CREATED
