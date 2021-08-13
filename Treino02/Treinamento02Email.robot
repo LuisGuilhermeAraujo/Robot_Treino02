@@ -28,8 +28,8 @@ ${CLICKCOOKIES}            css=div[class*="cc-compliance"]
 *** Tasks ***
 Tarefa 2:
     [Documentation]    sequencia das tarefas
-    LOGANDO NO SITE
-    REALIZAR O CADSATRO NO SITE
+    #LOGANDO NO SITE
+    #REALIZAR O CADSATRO NO SITE
     VERIFICAR EMAIL DE CONFIRMAÇÃO
     CRIANDO A SENHA
 

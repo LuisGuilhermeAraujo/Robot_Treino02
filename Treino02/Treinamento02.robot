@@ -6,7 +6,6 @@ Library          socket
 Library          IpDinamico.py
 
 
-
 *** Variables ***
 ${NAVEGADOR}               Chrome
 ${LINK}                    https://developer.clashroyale.com/#
