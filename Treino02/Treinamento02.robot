@@ -52,7 +52,6 @@ LOGANDO SITE
 
 ACESSANDO PERFIL
     [Documentation]    Sequencia das tarefas para abrir o perfil
-    #Go To    ${LINK}/account
     Go To    ${LINK}/new-key
 
 CRIANDO NEW KEY
