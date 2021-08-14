@@ -39,7 +39,6 @@ LOGANDO NO SITE
     [Documentation]    Logando no site
     Open Browser       ${LINK}/register    ${NAVEGADOR}
     Maximize Browser Window
-    Sleep    1s
 
 REALIZAR O CADSATRO NO SITE
     [Documentation]    Usuario se cadastrando no site
@@ -53,14 +52,19 @@ VERIFICAR EMAIL DE CONFIRMAÇÃO
     @{EMAIL}         List Messages        SUBJECT "Welcome to the Clash Royale API"
     ${EMAIL_BODY}    Set Variable         ${EMAIL}[0][Body]
     ${LINKS}         Extrair Link         ${EMAIL_BODY}
-    Open Browser     ${LINKS}             ${NAVEGADOR}
+    [Return]         ${LINKS}
 
 CRIANDO A SENHA
-    [Documentation]    Criação de senha no site
+    [Documentation]    Criação de senha no site.
+    ${LINKS}    Wait Until Keyword Succeeds
+    ...    retry=3x
+    ...    retry_interval=30s
+    ...    Recuperação o Link de Confirmação
+    Go To    ${LINKS}
     Maximize Browser Window
-    Sleep    1s
-    Click Element    ${CLICKCOOKIES}
-    Sleep    1s
+    Wait Until Element Is Visible         ${CLICKCOOKIES}
+    Click Element                         ${CLICKCOOKIES}
+    Wait Until Element Is Visible         ${INSERTPASSWORD}
     Input Text       ${INSERTPASSWORD}    ${GMAIL_PASSWORD}
     Input Text       ${INSERTPASSWORD2}   ${GMAIL_PASSWORD}
     Click Element    ${CLICKPRIVACY}

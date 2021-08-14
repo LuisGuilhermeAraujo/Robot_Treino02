@@ -2,8 +2,8 @@
 Documentation    Treinamento02
 Library          SeleniumLibrary
 Library          DebugLibrary
-Library          socket
 Library          IpDinamico.py
+Library          RPA.HTTP
 
 
 *** Variables ***
@@ -30,9 +30,9 @@ Tarefa 1:
     [Documentation]    Sequencia das tarefas para entrar no site
     CONECTAR AO SITE
     LOGANDO SITE
-    ACESSANDO PERFIL
     CRIANDO NEW KEY
     ACESSED KEY CREATED
+    OBTER IP EXTERNO MODO 2
 
 
 *** Keywords ***
@@ -50,12 +50,9 @@ LOGANDO SITE
     Click Button      ${CLICKLOGIN}
     Wait Until Page Contains    Enter the Arena with Clash Royale API
 
-ACESSANDO PERFIL
-    [Documentation]    Sequencia das tarefas para abrir o perfil
-    Go To    ${LINK}/new-key
-
 CRIANDO NEW KEY
     [Documentation]    Sequencia das tarefas para criar new key
+    Go To    ${LINK}/new-key
     Wait Until Element Is Visible            ${INPUTNAMEAPI}
     Input Text    ${INPUTNAMEAPI}            LuisAPI
     Input Text    ${INPUTDESCRIOTIONAPI}     API para adicionar novas informações ao campo teste
@@ -65,10 +62,15 @@ CRIANDO NEW KEY
     Input Text    ${INPUTIPADDRESSES2}       ${IPDINAMICO}
     Click Button  ${CLICKCREATEKEY}
 
+OBTER IP EXTERNO MODO 2
+    [Documentation]    Obtendo de forma no robot
+    ${RESP}     Get     https://api.ipify.org/
+    [Return]    ${RESP.JSON()}[IP]
+
 ACESSED KEY CREATED
     [Documentation]    Sequencia das tarefas para acessar o created key
     Wait Until Element Is Visible  ${CLICKACESSKEY}
     Click Element                  ${CLICKACESSKEY}
     Wait Until Element Is Visible  ${GETTEXTTOKEN}
     ${TOKEN}    Get Text           ${GETTEXTTOKEN}
-    Log To Console                 ${TOKEN}
+    [Return]    ${TOKEN}
