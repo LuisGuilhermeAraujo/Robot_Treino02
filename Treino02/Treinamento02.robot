@@ -59,9 +59,10 @@ CRIANDO NEW KEY
     Wait Until Element Is Visible            ${INPUTNAMEAPI}
     Input Text    ${INPUTNAMEAPI}            LuisAPI
     Input Text    ${INPUTDESCRIOTIONAPI}     API para adicionar novas informações ao campo teste
-    Input Text    ${INPUTIPADDRESSES1}       189.54.220.236
+    ${IPDINAMICO}    ObterIP Externo
+    Input Text    ${INPUTIPADDRESSES1}       ${IPDINAMICO}
     Click Button  ${CLICKNEWIP}
-    Input Text    ${INPUTIPADDRESSES2}       189.54.220.236
+    Input Text    ${INPUTIPADDRESSES2}       ${IPDINAMICO}
     Click Button  ${CLICKCREATEKEY}
 
 ACESSED KEY CREATED
@@ -71,6 +72,3 @@ ACESSED KEY CREATED
     Wait Until Element Is Visible  ${GETTEXTTOKEN}
     ${TOKEN}    Get Text           ${GETTEXTTOKEN}
     Log To Console                 ${TOKEN}
-
-##FAZER ESSA BUSCA##
-##API PARA RETORNAR MEU IP EXTERNO PARAR GERAR CHAVES ALEATORIAS##
