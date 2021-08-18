@@ -2,7 +2,7 @@ import  requests
 import  json
 import  csv
 import  pandas as pd
-import  pandaRE
+
 
 from requests.models import Response
 
